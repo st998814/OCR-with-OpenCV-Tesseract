@@ -10,7 +10,7 @@ For real-life photo that waken by digital camera (Drive license , License plate.
 
 
 
-Preprocessing  method of real-life using OpenCV
+Preprocessing  method of real-life using OpenCV 
 
 1.grayscaling
 
