@@ -10,7 +10,7 @@ For real-life photo that waken by digital camera (Drive license , License plate.
 
 
 
-Preprocessing  method of real-life using OpenCV 
+#Preprocessing  method of real-life using OpenCV 
 
 1.Grayscaling
 
@@ -23,7 +23,7 @@ Preprocessing  method of real-life using OpenCV
 5.Opening(with PLTmodule)
 
 
-Drawing box using Pytesseract
+#Drawing box using Pytesseract
 
 1.On a character level
 
