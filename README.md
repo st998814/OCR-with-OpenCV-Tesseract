@@ -12,24 +12,24 @@ For real-life photo that waken by digital camera (Drive license , License plate.
 
 Preprocessing  method of real-life using OpenCV 
 
-1.grayscaling
+1.Grayscaling
 
-2.thresholding
+2.Thresholding
 
-3.dilating
+3.Dilating
 
-4.eroding
+4.Eroding
 
-5.opening(with PLTmodule)
+5.Opening(with PLTmodule)
 
 
 Drawing box using Pytesseract
 
-1.on a character level
+1.On a character level
 
-2.on a Pixel level
+2.On a Pixel level
 
-3.based on a regex template
+3.Based on a regex template
 
 
 
