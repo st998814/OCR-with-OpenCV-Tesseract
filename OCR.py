@@ -6,9 +6,10 @@ import numpy  as np
 import re
 from pytesseract import Output
 from matplotlib import pyplot as plt
+
 IMG_DIR = 'images/'
 
-#Real-life photo pre-processing
+#Pre-processing
 
 #Turn gray scale
 def get_grayscale(image):
@@ -19,6 +20,8 @@ def remove_noise(image):
 #hresholding 
 def thresholding(image): 
     return cv2.threshold(image, 128, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+
+# if necessary
 
 #dilate
 def dilate(image):
@@ -53,7 +56,7 @@ def match_template(image, template):
     return cv2.matchTemplate(image, template, cv2.TM_CCOEFF_NORMED) 
 
 
-
+#Boxing
 image = cv2.imread(IMG_DIR + 'PIDPDF.jpeg')
 h, w, c = image.shape
 boxes = pytesseract.image_to_boxes(image) 
@@ -63,7 +66,6 @@ for b in boxes.splitlines():
 
 
 d = pytesseract.image_to_data(image, output_type=Output.DICT) 
-print('DATA KEYS: \n', d.keys())
 date_pattern = '^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)\d\d$'
 n_boxes = len(d['text'])
 for i in range(n_boxes):
@@ -71,6 +73,8 @@ for i in range(n_boxes):
         if re.match(date_pattern, d['text'][i]):
             (x, y, w, h) = (d['left'][i], d['top'][i], d['width'][i], d['height'][i])
             image = cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+            
+            
 b,g,r = cv2.split(image)
 rgb_img = cv2.merge([r,g,b])
 plt.figure(figsize=(14,12))
@@ -98,19 +102,4 @@ fig = plt.figure(figsize=(11,11))
 
 #output
 custom_config = r' -l chi_tra --oem 3 --psm 6'
-print('-----------------------------------------')
-print('TESSERACT OUTPUT --> ORIGINAL IMAGE')
-print('-----------------------------------------')
-print(pytesseract.image_to_string(image, config=custom_config))
-print('\n-----------------------------------------')
-print('TESSERACT OUTPUT --> THRESHOLDED IMAGE')
-print('-----------------------------------------')
-print(pytesseract.image_to_string(image, config=custom_config))
-print('\n-----------------------------------------')
-print('TESSERACT OUTPUT --> OPENED IMAGE')
-print('-----------------------------------------')
-print(pytesseract.image_to_string(image, config=custom_config))
-print('\n-----------------------------------------')
-print('TESSERACT OUTPUT --> CANNY EDGE IMAGE')
-print('-----------------------------------------')
 print(pytesseract.image_to_string(image, config=custom_config))
