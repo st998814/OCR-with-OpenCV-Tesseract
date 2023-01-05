@@ -11,27 +11,27 @@ All the config and function can be altered by different photo/image condition
 
 #### Necessary pre-work
 
-1.Grayscaling
+1.Grayscaling(OpenCV)
 
-2.Thresholding
+2.Thresholding(OpenCV)
 
 #### Advanced processing for photograph
 
-3.Dilating
+3.Dilating(OpenCV)
 
-4.Eroding
+4.Eroding(OpenCV)
 
 5.Opening (with PLTmodule)
 
 
 ####  Drawing box using Pytesseract
+* On a character level
 
-1.On a character level
+* On a Pixel level
 
-2.On a Pixel level
-
-3.Based on a regex template
-
+* Based on a regex template
 
 
+
+#### Running Tesseract 
 
